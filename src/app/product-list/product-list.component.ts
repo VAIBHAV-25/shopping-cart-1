@@ -24,7 +24,8 @@ export class ProductListComponent implements OnInit {
     this.productService.getProducts().subscribe((products) => {
       this.products = products;
       this.filteredProducts = this.products;
-      this.uniqueCategories = this.getUniqueCategories() as string[]; // Use type assertion
+      this.uniqueCategories = this.getUniqueCategories() as string[];
+      this.uniqueCategories = this.uniqueCategories.filter(item => item !== undefined); // Use type assertion
     });
   }
 
