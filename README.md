@@ -11,8 +11,6 @@ This is a sample Shopping Cart application built using Angular. The application 
 - [Features](#features)
 - [Project Structure](#project-structure)
 - [Technologies Used](#technologies-used)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Getting Started
 
