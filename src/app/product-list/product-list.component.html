@@ -1,0 +1,37 @@
+<!-- src/app/product-list/product-list.component.html -->
+<div class="container">
+  <div class="header">
+  <div class="h3">Shopping Cart Application</div>
+  <div class="input-group">
+    <label class="input-group-text" for="productDropdown">Filter by Category:</label>
+    <select class="form-select" [(ngModel)]="selectedCategory" (change)="filterByCategory(selectedCategory)" id="productDropdown">
+      <option value="">All</option>
+      <option *ngFor="let category of uniqueCategories" [value]="category">{{ category }}</option>
+    </select>
+  </div>
+  </div>
+  <div class="card-grid">
+    <div class="card" *ngFor="let product of filteredProducts">
+      <div class="card-header">
+        <div class="h4">{{ product.p_name }}</div>
+      </div>
+      <div class="card-body">
+          <div class="prod-img"><img [src]="product.p_image" alt="Product Image" class="product-image" /></div>  
+          <p>Product Name: {{ product.p_name }}</p>  
+          <p>Product Details: {{ product.p_details }}</p>  
+          <p>Product Category: {{ product.p_category }}</p>  
+          <p>Product Cost: &#8377; {{ product.p_cost }}</p> 
+          <div>
+          <p *ngIf="product.p_availability === 1" class="text-success">Availability: In Stock</p>
+          <p *ngIf="product.p_availability === 0" class="text-danger">Availability: Out of Stock</p>
+        </div>
+        <div class="form-group">
+          <label for="quantityInput"> Quantity: </label>
+          <input type="number" class="form-control"  id="quantityInput" [(ngModel)]="product.quantity" />
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+  
