@@ -24,16 +24,16 @@ To run this application, you need to have the following software installed on yo
   ```bash
   npm install -g @angular/cli
 
-##Installation
+###Installation
 Clone the repository: git clone https://github.com/your-username/shopping-cart.git
 Navigate to the project directory:cd shopping-cart-1
 Install the project dependencies:npm install
 
-##Running the Application
+###Running the Application
 To run the application, use the following command: ng serve
 Open your web browser and navigate to http://localhost:4200/ to view the application.
 
-##Project Structure
+###Project Structure
 shopping-cart/
   |- src/
   |   |- app/
@@ -47,7 +47,7 @@ shopping-cart/
   |   |- ...
   |- ...
 
-##Technologies Used
+###Technologies Used
 Angular
 HTML
 CSS
