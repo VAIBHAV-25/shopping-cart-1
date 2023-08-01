@@ -12,7 +12,7 @@ export class ProductListComponent implements OnInit {
   products: Product[];
   selectedCategory: string;
   filteredProducts: Product[];
-  uniqueCategories: (string | undefined)[]; // Update uniqueCategories property
+  uniqueCategories: string[];
 
   constructor(private productService: ProductService) {}
 
@@ -24,7 +24,7 @@ export class ProductListComponent implements OnInit {
     this.productService.getProducts().subscribe((products) => {
       this.products = products;
       this.filteredProducts = this.products;
-      this.uniqueCategories = this.getUniqueCategories();
+      this.uniqueCategories = this.getUniqueCategories() as string[]; // Use type assertion
     });
   }
 
@@ -37,5 +37,16 @@ export class ProductListComponent implements OnInit {
 
   getUniqueCategories(): (string | undefined)[] {
     return [...new Set(this.products.map((product) => product.p_category))];
+  }
+
+  onQuantityChange(product: Product, quantity: number | undefined): void {
+    // Update the quantity property for the product
+    product.quantity = quantity!;
+  }
+
+  onSubmit(): void {
+    // Display the JSON in a dialog on submit
+    const jsonString = JSON.stringify(this.products, null, 2);
+    alert(jsonString);
   }
 }
